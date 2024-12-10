@@ -27,9 +27,9 @@ export const HeaderCell: FC<HeaderCellProps> = ({
     align={align ?? 'left'}
     className={className}
     sx={{
-      backgroundColor: backgroundColor ?? colors.gray[900],
+      backgroundColor: backgroundColor ?? colors.primary,
       border: '0',
-      borderBottom: `2px solid ${colors.gray[550]}`,
+      borderBottom: `1px solid ${colors.gray[500]}`,
       color: 'white',
       fontWeight: '600',
       maxWidth,

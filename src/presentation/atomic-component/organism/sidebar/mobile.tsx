@@ -2,12 +2,12 @@ import { IconButton, Slide } from '@mui/material';
 import { IconRender } from 'presentation/atomic-component/atom';
 import { Link } from 'react-router-dom';
 import { Role } from 'domain/models';
+import { SidebarItems } from 'main/mock';
 import { SupervisorAccountOutlined } from '@mui/icons-material';
 import { getUser } from 'store/persist/selector';
 import { paths } from 'main/config';
 import { setSidebar } from 'store/sidebar/slice';
 import { useDispatch } from 'react-redux';
-import { useFindPlatformQuery } from 'infra/cache';
 import { usePath } from 'data/hooks';
 import { useSidebar } from 'store/sidebar/selector';
 import type { FC } from 'react';
@@ -19,8 +19,6 @@ export const MobileSidebar: FC = () => {
 
   const user = getUser();
 
-  const platformQuery = useFindPlatformQuery({});
-
   return (
     <Slide
       direction={'right'}
@@ -31,15 +29,15 @@ export const MobileSidebar: FC = () => {
     >
       <div
         className={
-          'fixed z-40 border-t border-gray-700 bg-gray-800 w-full h-[calc(100dvh)] mt-[-1px] text-white'
+          'fixed z-40 border-t border-gray-700 bg-primary w-full h-[calc(100dvh)] mt-[-1px] text-white'
         }
       >
         <div
           className={
-            'fixed z-40 bg-gray-800 dark:border-0 py-5 px-2 h-[calc(88vh-90px)] dark:bg-gray-800 flex flex-col gap-[10px] justify-between w-full overflow-auto'
+            'fixed z-40 bg-primary gray-800 dark:border-0 py-5 px-2 h-[calc(88vh-90px)] flex flex-col gap-[10px] justify-between w-full overflow-auto'
           }
         >
-          <div className={`fixed z-5 w-full left-0 bg-gray-800 ${sidebar ? 'flex' : 'hidden'}`} />
+          <div className={`fixed z-5 w-full left-0 bg-primary ${sidebar ? 'flex' : 'hidden'}`} />
 
           <div className={'flex flex-col gap-[10px] overflow-auto'}>
             {user.role === Role.admin ? (
@@ -120,8 +118,8 @@ export const MobileSidebar: FC = () => {
               </div>
             </Link>
 
-            {platformQuery.data?.content.map((sidebarItem) => (
-              <Link key={sidebarItem.id} to={paths.platform(sidebarItem.keyword)}>
+            {SidebarItems.map((sidebarItem) => (
+              <Link key={sidebarItem.name} to={sidebarItem.link}>
                 <div
                   className={'px-3 cursor-pointer'}
                   onClick={(): void => {
@@ -134,19 +132,7 @@ export const MobileSidebar: FC = () => {
                       allPathname.includes(sidebarItem.keyword) ? 'bg-gray-700 text-white' : ''
                     }`}
                   >
-                    <IconButton
-                      color={'inherit'}
-                      sx={{
-                        padding: '1px'
-                      }}
-                    >
-                      <IconRender
-                        name={sidebarItem.image}
-                        sx={{
-                          fontSize: '1.95rem'
-                        }}
-                      />
-                    </IconButton>
+                    {sidebarItem.icon}
 
                     <span
                       className={`h-[1.5rem] font-semibold overflow-hidden cursor-pointer ${

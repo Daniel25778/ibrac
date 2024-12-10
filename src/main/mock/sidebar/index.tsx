@@ -5,49 +5,64 @@ import {
   FormatListBulleted,
   Group,
   Home,
-  Info
+  Info,
+  ProductionQuantityLimits
 } from '@mui/icons-material';
 import { paths } from 'main/config';
 
 export const SidebarItems = [
   {
-    icon: <Business />,
+    icon: <Home />,
+    keyword: 'home',
     link: paths.home,
+    name: 'Home'
+  },
+  {
+    icon: <Business />,
+    keyword: 'comercial',
+    link: paths.comercial,
     name: 'Comercial'
   },
   {
-    icon: <Home />,
-    link: paths.home,
+    icon: <ProductionQuantityLimits />,
+    keyword: 'producao',
+    link: paths.production,
     name: 'Produção'
   },
   {
     icon: <AttachMoney />,
-    link: paths.home,
+    keyword: 'financeiro',
+    link: paths.financial,
     name: 'Financeiro'
   },
   {
     icon: <FormatListBulleted />,
-    link: paths.home,
+    keyword: 'supply',
+    link: paths.supply,
     name: 'Supply'
   },
   {
     icon: <Group />,
-    link: paths.home,
+    keyword: 'rh',
+    link: paths.rh,
     name: 'RH'
   },
   {
     icon: <FolderCopy />,
-    link: paths.home,
+    keyword: 'sgi',
+    link: paths.sgi,
     name: 'SGI'
   },
   {
     icon: <Home />,
-    link: paths.home,
+    keyword: 'sysadmin',
+    link: paths.sysAdmin,
     name: 'SYSADMIN'
   },
   {
     icon: <Info />,
-    link: paths.home,
+    keyword: 'sobre',
+    link: paths.about,
     name: 'Sobre'
   }
 ];

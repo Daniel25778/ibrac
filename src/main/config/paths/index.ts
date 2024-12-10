@@ -2,10 +2,16 @@
 export enum routePaths {
   login = '/',
   panel = '/painel',
-  functionalityTest = '/painel/teste-de-funcinalidade/:functionalityKeyword',
-  home = '/plataforma',
-  platform = '/plataforma/:platformKeyword',
-  functionality = '/plataforma/:platformKeyword/:functionalityKeyword',
+  home = '/home',
+  comercial = '/comercial',
+  production = '/producao',
+  financial = '/financeiro',
+  supply = '/supply',
+  consult = '/supply/consulta',
+  rh = '/rh',
+  sgi = '/sgi',
+  sysAdmin = '/sys-admin',
+  about = '/sobre',
   profile = '/perfil',
   recoverPassword = '/recuperar-senha',
   register = '/cadastro'
@@ -13,13 +19,17 @@ export enum routePaths {
 
 export const paths = {
   login: '/',
-  home: '/plataforma',
   panel: '/painel',
-  functionalityTest: (functionalityKeyword: string): string =>
-    `/painel/teste-de-funcinalidade/${functionalityKeyword}`,
-  platform: (platformKeyword: string): string => `/plataforma/${platformKeyword}`,
-  functionality: (platformKeyword: string, functionalityKeyword: string): string =>
-    `/plataforma/${platformKeyword}/${functionalityKeyword}`,
+  home: '/home',
+  comercial: '/comercial',
+  production: '/producao',
+  financial: '/financeiro',
+  supply: '/supply',
+  consult: '/supply/consulta',
+  rh: '/rh',
+  sgi: '/sgi',
+  sysAdmin: '/sys-admin',
+  about: '/sobre',
   profile: '/perfil',
   recoverPassword: '/recuperar-senha',
   register: '/cadastro'

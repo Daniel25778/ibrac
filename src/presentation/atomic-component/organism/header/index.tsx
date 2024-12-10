@@ -63,7 +63,7 @@ export const Header: FC<HeaderProps> = ({ headerIsBig }) => {
 
       <div className={'bg-primary w-full relative'}>
         <Collapse
-          className={'absolute top-0 right-0'}
+          className={'absolute bg-primary top-0 right-0'}
           collapsedSize={'48px'}
           in={showUser}
           sx={{

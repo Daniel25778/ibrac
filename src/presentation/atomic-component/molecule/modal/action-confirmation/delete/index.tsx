@@ -55,13 +55,8 @@ export const DeleteConfirmationModal: FC<DeleteConfirmationModalProps> = ({
             {openElement}
           </div>
         ) : (
-          <div
-            className={
-              'bg-gray-700 hover:bg-gray-550 border border-gray-500 rounded-md p-2 cursor-pointer'
-            }
-            onClick={openModal}
-          >
-            <Delete />
+          <div className={' rounded-md p-2 cursor-pointer'} onClick={openModal}>
+            <Delete color={'error'} />
           </div>
         )
       }

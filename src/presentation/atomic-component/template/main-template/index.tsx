@@ -28,7 +28,7 @@ export const MainTemplate: FC = () => {
         <Sidebar headerIsBig={headerIsBig} />
 
         <div
-          className={`flex flex-col overflow-auto w-full h-full text-white p-4 laptop:p-8 ${open ? 'laptop:ml-[280px]' : 'laptop:ml-[65px]'}`}
+          className={`flex flex-col overflow-auto w-full h-full min-h-[calc(100dvh-94px)] text-white p-4 laptop:p-8 ${open ? 'laptop:ml-[280px]' : 'laptop:ml-[65px]'}`}
           style={{
             transition: 'all 200ms'
           }}

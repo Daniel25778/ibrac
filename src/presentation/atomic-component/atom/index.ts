@@ -19,6 +19,7 @@ export * from './error-div';
 export * from './success-div';
 export * from './date-input';
 export * from './card';
+export * from './tabs-base';
 export * from './highlighted-text';
 export * from './draggable-container';
 export * from './icon-render';

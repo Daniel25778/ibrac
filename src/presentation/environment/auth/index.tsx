@@ -9,7 +9,7 @@ export const AuthContent: FC = () => {
       }
     >
       <div className={'flex flex-col gap-2'}>
-        <h1 className={' font-bold text-4xl'}>Seja bem-vindo!</h1>
+        <h1 className={'font-bold text-2xl tablet:text-4xl'}>Seja bem-vindo!</h1>
         <p>Entre em sua conta com e-mail e senha</p>
       </div>
 

@@ -25,12 +25,7 @@ export const UserModal: FC<UserModalProps> = ({ user }) => {
       openModal={openModal}
       openModalElement={
         user ? (
-          <div
-            className={
-              'bg-gray-700 hover:bg-gray-550 border border-gray-500 rounded-md p-2 cursor-pointer'
-            }
-            onClick={openModal}
-          >
+          <div className={' rounded-md p-2 cursor-pointer'} onClick={openModal}>
             <Edit />
           </div>
         ) : (

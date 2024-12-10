@@ -10,5 +10,6 @@ export * from './submit-form';
 export * from './call-toast';
 export * from './scroll-top';
 export * from './random';
+export * from './tabs';
 export * from './validate-form';
 export * from './validate';
