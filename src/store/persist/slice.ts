@@ -6,11 +6,13 @@ import type { UserProps } from 'domain/models';
 interface PersistState {
   accessToken: string | null;
   user: string | null;
+  sidebar: boolean;
   theme: 'dark' | 'light';
 }
 
 const initialState: PersistState = {
   accessToken: null,
+  sidebar: true,
   theme: 'light',
   user: null
 };
@@ -27,6 +29,9 @@ const persistSlice = createSlice({
       state.accessToken = encryptData(action.payload.accessToken);
       state.user = encryptData(JSON.stringify(action.payload.user));
     },
+    setSidebar(state: PersistState, action: PayloadAction<boolean>) {
+      state.sidebar = action.payload;
+    },
     setTheme(state: PersistState, action: PayloadAction<'dark' | 'light'>) {
       state.theme = action.payload;
     }
@@ -35,5 +40,5 @@ const persistSlice = createSlice({
 
 export const {
   reducer: persistReducer,
-  actions: { setAuth, logout, setTheme }
+  actions: { setAuth, logout, setTheme, setSidebar }
 } = persistSlice;

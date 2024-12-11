@@ -15,7 +15,7 @@ type TabPanelSelected = 'nfs' | 'products' | 'stock';
 export const ConsultContent: FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<TabPanelSelected>('products');
   const { handleChangePage, page } = usePagination();
-  const userQuery = useFindUserQuery({ limit: 5, page });
+  const userQuery = useFindUserQuery({ limit: 50, page });
 
   return (
     <div className={'flex flex-col gap-4'}>
@@ -23,9 +23,9 @@ export const ConsultContent: FC = () => {
         <GoBack />
       </div>
 
-      <div className={'flex  flex-col w-full max-w-[1400px mx-aut'}>
+      <div className={'flex  flex-col w-full '}>
         <TabContext value={selectedIndex}>
-          <div className={'w-full mt-9'}>
+          <div className={'w-full '}>
             <TabsBase
               onChange={(_event, newValue): void => {
                 setSelectedIndex(newValue as TabPanelSelected);
@@ -38,11 +38,11 @@ export const ConsultContent: FC = () => {
                     <ShowChart
                       color={'inherit'}
                       sx={{
-                        fontSize: '40px'
+                        fontSize: '30px'
                       }}
                     />
 
-                    <span>Produtos - SB1</span>
+                    <span className={'text-[17px]'}>Produtos - SB1</span>
                   </div>
                 }
                 sx={sxTab(selectedIndex === 'products')}
@@ -56,11 +56,11 @@ export const ConsultContent: FC = () => {
                     <PersonOutline
                       color={'inherit'}
                       sx={{
-                        fontSize: '40px'
+                        fontSize: '30px'
                       }}
                     />
 
-                    <span>NF´s - Entrada</span>
+                    <span className={'text-[17px]'}>NF´s - Entrada</span>
                   </div>
                 }
                 sx={sxTab(selectedIndex === 'nfs')}
@@ -73,11 +73,11 @@ export const ConsultContent: FC = () => {
                   <div className={classNameTab(selectedIndex === 'stock')}>
                     <Inventory2Outlined
                       sx={{
-                        fontSize: '40px'
+                        fontSize: '30px'
                       }}
                     />
 
-                    <span>Estoque</span>
+                    <span className={'text-[17px]'}>Estoque</span>
                   </div>
                 }
                 sx={sxTab(selectedIndex === 'stock')}
@@ -97,11 +97,11 @@ export const ConsultContent: FC = () => {
             </TabsBase>
           </div>
 
-          <div className={'w-full h-52'}>
+          <div className={'w-full'}>
             <TabPanel value={'products'}>
               <div className={'flex flex-col'}>
                 {userQuery.data ? (
-                  <div className={'flex flex-col gap-6 max-w-[1300px] w-full mx-auto'}>
+                  <div className={'flex flex-col gap-6 w-full mx-auto'}>
                     <div className={'flex justify-end'}>
                       <UserModal />
                     </div>
@@ -124,7 +124,7 @@ export const ConsultContent: FC = () => {
             <TabPanel value={'nfs'}>
               <div className={'flex flex-col'}>
                 {userQuery.data ? (
-                  <div className={'flex flex-col gap-6 max-w-[1300px] w-full mx-auto'}>
+                  <div className={'flex flex-col gap-6 w-full mx-auto'}>
                     <div className={'flex justify-end'}>
                       <UserModal />
                     </div>
@@ -147,7 +147,7 @@ export const ConsultContent: FC = () => {
             <TabPanel value={'stock'}>
               <div className={'flex flex-col'}>
                 {userQuery.data ? (
-                  <div className={'flex flex-col gap-6 max-w-[1300px] w-full mx-auto'}>
+                  <div className={'flex flex-col gap-6 w-full mx-auto'}>
                     <div className={'flex justify-end'}>
                       <UserModal />
                     </div>

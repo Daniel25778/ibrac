@@ -8,7 +8,9 @@ export const FinancialContent: FC = () => {
         <GoBack />
       </div>
 
-      <div className={'flex flex-wrap gap-4'} />
+      <div className={'flex'}>
+        <h1>Financeiro</h1>
+      </div>
     </div>
   );
 };

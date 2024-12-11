@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom';
 import { Role } from 'domain/models';
 import { SidebarItems } from 'main/mock';
 import { SupervisorAccountOutlined } from '@mui/icons-material';
-import { getUser } from 'store/persist/selector';
+import { getUser, useSidebar } from 'store/persist/selector';
 import { paths } from 'main/config';
-import { setSidebar } from 'store/sidebar/slice';
+import { setSidebar } from 'store/persist/slice';
 import { useDispatch } from 'react-redux';
 import { usePath } from 'data/hooks';
-import { useSidebar } from 'store/sidebar/selector';
 import type { FC } from 'react';
 
 export const MobileSidebar: FC = () => {

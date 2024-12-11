@@ -1,4 +1,5 @@
 import {
+  AdminPanelSettings,
   AttachMoney,
   Business,
   FolderCopy,
@@ -6,7 +7,7 @@ import {
   Group,
   Home,
   Info,
-  ProductionQuantityLimits
+  Inventory2
 } from '@mui/icons-material';
 import { paths } from 'main/config';
 
@@ -24,7 +25,7 @@ export const SidebarItems = [
     name: 'Comercial'
   },
   {
-    icon: <ProductionQuantityLimits />,
+    icon: <Inventory2 />,
     keyword: 'producao',
     link: paths.production,
     name: 'Produção'
@@ -54,8 +55,8 @@ export const SidebarItems = [
     name: 'SGI'
   },
   {
-    icon: <Home />,
-    keyword: 'sysadmin',
+    icon: <AdminPanelSettings />,
+    keyword: 'sys-admin',
     link: paths.sysAdmin,
     name: 'SYSADMIN'
   },

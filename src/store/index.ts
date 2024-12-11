@@ -3,7 +3,6 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 import { persistReducer as persistedReducer } from './persist/slice';
 import { redirectReducer } from './redirect/slice';
-import { sidebarReducer } from './sidebar/slice';
 import { useSelector } from 'react-redux';
 import storage from 'redux-persist/lib/storage';
 import thunkMiddleware from 'redux-thunk';
@@ -19,8 +18,7 @@ const persisted = persistReducer(persistConfig, persistedReducer);
 const rootReducer = combineReducers({
   canvasImage: canvasImageReducer,
   persist: persisted,
-  redirect: redirectReducer,
-  sidebar: sidebarReducer
+  redirect: redirectReducer
 });
 
 export const store = configureStore({ middleware: [thunkMiddleware], reducer: rootReducer });

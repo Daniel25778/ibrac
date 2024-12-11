@@ -6,7 +6,7 @@ import { useAppSelector } from 'store';
 export const MainTemplate: FC = () => {
   const { pathname } = useLocation();
 
-  const { open } = useAppSelector((state) => state.sidebar);
+  const open = useAppSelector((state) => state.persist.sidebar);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,14 +21,14 @@ export const MainTemplate: FC = () => {
       <main
         className={'flex max-w-[100vw]'}
         style={{
-          marginTop: headerIsBig ? '94px' : '65px',
+          marginTop: headerIsBig ? '80px' : '40px',
           transition: 'all 200ms'
         }}
       >
         <Sidebar headerIsBig={headerIsBig} />
 
         <div
-          className={`flex flex-col overflow-auto w-full h-full min-h-[calc(100dvh-94px)] text-white p-4 laptop:p-8 ${open ? 'laptop:ml-[280px]' : 'laptop:ml-[65px]'}`}
+          className={`flex flex-col overflow-auto w-full h-[calc(100dvh-94px)] p-4 laptop:p-8 ${open ? 'laptop:ml-[200px]' : 'laptop:ml-[65px]'}`}
           style={{
             transition: 'all 200ms'
           }}

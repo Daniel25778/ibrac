@@ -8,7 +8,9 @@ export const SgiContent: FC = () => {
         <GoBack />
       </div>
 
-      <div className={'flex flex-wrap gap-4'} />
+      <div className={'flex'}>
+        <h1>SGI</h1>
+      </div>
     </div>
   );
 };

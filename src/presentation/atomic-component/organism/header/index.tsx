@@ -33,11 +33,11 @@ export const Header: FC<HeaderProps> = ({ headerIsBig }) => {
         'flex fixed top-0 z-20 bg-primary border-b border-gray-500 items-center justify-between px-2 w-screen'
       }
       style={{
-        height: headerIsBig ? '94px' : '65px',
+        height: headerIsBig ? '80px' : '40px',
         transition: 'all 200ms'
       }}
     >
-      <div className={'flex w-full items-center gap-4 justify-start'}>
+      <div className={'flex w-full items-center gap-4 ml-1 justify-start'}>
         <ToggleMenu />
       </div>
 
@@ -76,7 +76,7 @@ export const Header: FC<HeaderProps> = ({ headerIsBig }) => {
           <div
             className={'flex flex-col'}
             style={{
-              gap: headerIsBig ? '22px' : '8.5px',
+              gap: headerIsBig ? '15px' : '8.5px',
               transition: 'all  150ms'
             }}
           >
@@ -117,7 +117,7 @@ export const Header: FC<HeaderProps> = ({ headerIsBig }) => {
 
             <List
               className={
-                'flex bg-gray-700 text-white flex-col gap-1 border-2 border-t-0 border-gray-500 text-sm'
+                'flex bg-gray-700 text-white flex-col gap-1 border border-t-0 border-gray-500 text-sm'
               }
               sx={{
                 padding: '4px 0px'

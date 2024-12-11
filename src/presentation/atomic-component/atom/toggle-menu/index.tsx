@@ -1,8 +1,8 @@
 import { Close, Menu } from '@mui/icons-material';
 import { ListItemButton } from '@mui/material';
-import { setSidebar } from 'store/sidebar/slice';
+import { setSidebar } from 'store/persist/slice';
 import { useDispatch } from 'react-redux';
-import { useSidebar } from 'store/sidebar/selector';
+import { useSidebar } from 'store/persist/selector';
 import type { FC } from 'react';
 
 export const ToggleMenu: FC = () => {

@@ -25,11 +25,15 @@ export const UserModal: FC<UserModalProps> = ({ user }) => {
       openModal={openModal}
       openModalElement={
         user ? (
-          <div className={' rounded-md p-2 cursor-pointer'} onClick={openModal}>
+          <div className={'rounded-md p-2 cursor-pointer'} onClick={openModal}>
             <Edit />
           </div>
         ) : (
-          <Button onClick={(): void => openModal()} startIcon={<Add />}>
+          <Button
+            className={'w-full tablet:w-max'}
+            onClick={(): void => openModal()}
+            startIcon={<Add />}
+          >
             Adicionar usuário
           </Button>
         )

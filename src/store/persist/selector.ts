@@ -1,6 +1,6 @@
 import { Role, type UserProps } from 'domain/models';
 import { decryptData } from 'main/utils';
-import { store } from 'store';
+import { store, useAppSelector } from 'store';
 
 export const getUser = (): UserProps => {
   const user = decryptData(store.getState().persist.user || '');
@@ -15,4 +15,10 @@ export const getUser = (): UserProps => {
     userSeeFunctionality: [],
     username: ''
   };
+};
+
+export const useSidebar = (): boolean => {
+  const sidebar = useAppSelector((state) => state.persist.sidebar);
+
+  return sidebar;
 };

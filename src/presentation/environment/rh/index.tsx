@@ -8,7 +8,9 @@ export const RhContent: FC = () => {
         <GoBack />
       </div>
 
-      <div className={'flex flex-wrap gap-4'} />
+      <div className={'flex'}>
+        <h1>RH</h1>
+      </div>
     </div>
   );
 };

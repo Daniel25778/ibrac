@@ -14,15 +14,15 @@ interface LaptopSidebarProps {
 
 export const LaptopSidebar: FC<LaptopSidebarProps> = ({ headerIsBig }) => {
   const containerRef = useRef(null);
-  const { open } = useAppSelector((state) => state.sidebar);
+  const open = useAppSelector((state) => state.persist.sidebar);
   const { allPathname, firstPathname } = usePath();
   const user = getUser();
 
   return (
     <div
-      className={`flex flex-col fixed bg-primary pl-1 justify-between gap-3 h-max border-r-2 border-gray-500 py-4 transition-[width] ease-in-out  ${
-        open ? 'w-[280px]' : 'w-[65px]'
-      } ${headerIsBig ? 'min-h-[calc(100dvh-94px)]' : 'min-h-[calc(100dvh-65px)]'}`}
+      className={`flex flex-col fixed bg-primary pl-1 justify-between gap-3 h-max border-r border-gray-500 py-4 transition-[width] ease-in-out  ${
+        open ? 'w-[200px]' : 'w-[65px]'
+      } ${headerIsBig ? 'min-h-[calc(100dvh-80px)]' : 'min-h-[calc(100dvh-40px)]'}`}
       ref={containerRef}
     >
       <div className={'flex flex-col justify-between gap-3 h-full pl-1'}>
@@ -31,7 +31,7 @@ export const LaptopSidebar: FC<LaptopSidebarProps> = ({ headerIsBig }) => {
             <Link to={paths.panel}>
               <div className={'px-3 cursor-pointer'} title={'Painel'}>
                 <div
-                  className={`flex gap-4 items-center justify-start rounded-md ml-[-5px] pl-[5px] h-[40px] transition-[width] ease-in delay-75 ${
+                  className={`flex gap-4 items-center justify-start rounded-md ml-[-7px] pl-[7px] h-[40px] transition-[width] ease-in delay-75 ${
                     open ? 'w-full ' : 'w-[38px]'
                   } ${firstPathname.startsWith('/painel') ? 'bg-gray-700 text-white' : 'text-white hover:bg-[#4e4e4e67]'}`}
                 >
@@ -58,7 +58,7 @@ export const LaptopSidebar: FC<LaptopSidebarProps> = ({ headerIsBig }) => {
             <Link key={sidebarItem.name} to={sidebarItem.link}>
               <div className={'px-3 cursor-pointer'} title={sidebarItem.name}>
                 <div
-                  className={`flex gap-4 items-center justify-start  rounded-md ml-[-5px] pl-[5px] h-[40px] transition-[width] ease-in delay-75 ${
+                  className={`flex gap-4 items-center justify-start rounded-md ml-[-7px] pl-[7px] h-[40px] transition-[width] ease-in delay-75 ${
                     open ? 'w-full ' : 'w-[38px]'
                   } ${allPathname.includes(sidebarItem.keyword) ? 'bg-gray-700 text-white' : 'text-white hover:bg-[#4e4e4e67]'}`}
                 >
