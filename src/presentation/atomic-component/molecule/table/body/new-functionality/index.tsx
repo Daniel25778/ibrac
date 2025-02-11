@@ -29,7 +29,7 @@ export const NewFunctionalityTableBody: FC<NewFunctionalityTableBodyProps> = ({ 
           <BodyCell align={'center'} title={item.description} />
           <BodyCell align={'center'} title={item.platform.name} />
           <BodyCell align={'center'} title={item.wasRaised ? 'Sim' : 'Não'} />
-          <BodyCell align={'center'} title={item.user.username} />
+          <BodyCell align={'center'} title={item.user.email} />
 
           <BodyCell
             align={'center'}

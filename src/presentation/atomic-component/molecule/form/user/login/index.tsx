@@ -17,10 +17,10 @@ export const LoginForm: FC = () => {
     <form className={'flex flex-col gap-4 w-full'} onSubmit={handleSubmit(onSubmit)}>
       <LabelInput
         autoCapitalize={'none'}
-        error={!!errors.username}
+        error={!!errors.email}
         label={'Nome de usuário'}
         placeholder={'Digite seu Nome de usuário'}
-        register={register('username')}
+        register={register('email')}
       />
 
       <LabelInput

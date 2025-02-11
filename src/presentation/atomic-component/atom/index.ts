@@ -25,4 +25,5 @@ export * from './draggable-container';
 export * from './icon-render';
 export * from './input-to-copy';
 export * from './list-input';
+export * from './load-more-button';
 export * from './list-list-input';

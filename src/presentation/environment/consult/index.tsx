@@ -1,7 +1,8 @@
 import { type FC, useState } from 'react';
-import { GoBack, TableTemplate, TabsBase } from 'presentation/atomic-component/atom';
+import { FetchOnScroll, GoBack, TableTemplate, TabsBase } from 'presentation/atomic-component/atom';
 import { Inventory2Outlined, PersonOutline, ShowChart } from '@mui/icons-material';
 import { Pagination } from 'presentation/atomic-component/molecule';
+import { QueryName, apiPaths } from 'main/config';
 import { Tab } from '@mui/material';
 import { TabContext, TabPanel } from '@mui/lab';
 import { UserModal } from 'presentation/atomic-component/molecule/modal';
@@ -9,13 +10,20 @@ import { UserTableBody } from 'presentation/atomic-component/molecule/table/body
 import { UserTableHeader } from 'presentation/atomic-component/molecule/table/header';
 import { classNameTab, sxTab } from 'main/utils';
 import { useFindUserQuery } from 'infra/cache';
-import { usePagination } from 'data/hooks';
+import { useInfiniteScroll, usePagination } from 'data/hooks';
+import type { UserProps } from 'domain/models';
 
 type TabPanelSelected = 'nfs' | 'products' | 'stock';
 export const ConsultContent: FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<TabPanelSelected>('products');
   const { handleChangePage, page } = usePagination();
   const userQuery = useFindUserQuery({ limit: 50, page });
+
+  const { data, ...query } = useInfiniteScroll<UserProps>({
+    limit: 8,
+    queryName: QueryName.user,
+    route: apiPaths.user
+  });
 
   return (
     <div className={'flex flex-col gap-4'}>
@@ -106,16 +114,12 @@ export const ConsultContent: FC = () => {
                       <UserModal />
                     </div>
 
-                    <TableTemplate
-                      tableBody={<UserTableBody items={userQuery.data?.content ?? []} />}
-                      tableHeader={<UserTableHeader />}
-                    />
-
-                    <Pagination
-                      handleChangePage={handleChangePage}
-                      page={page}
-                      totalPages={userQuery.data.totalPages}
-                    />
+                    <FetchOnScroll query={query}>
+                      <TableTemplate
+                        tableBody={<UserTableBody items={data || []} />}
+                        tableHeader={<UserTableHeader />}
+                      />
+                    </FetchOnScroll>
                   </div>
                 ) : null}
               </div>

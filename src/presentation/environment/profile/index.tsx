@@ -17,8 +17,8 @@ export const ProfileContent: FC = () => {
       </div>
 
       <div className={'flex gap-4 items-center mx-auto  max-w-[450px]'}>
-        <ImageModal name={userQuery.data?.username} url={userQuery.data?.avatar} />
-        <div>{userQuery.data?.username}</div>
+        <ImageModal name={userQuery.data?.email} url={userQuery.data?.avatar} />
+        <div>{userQuery.data?.email}</div>
         {userQuery.data ? <UserModal user={userQuery.data} /> : null}
       </div>
     </div>

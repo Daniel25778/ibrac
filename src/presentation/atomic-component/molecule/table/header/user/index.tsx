@@ -8,7 +8,6 @@ export const UserTableHeader: FC = () => {
       <TableRow>
         <HeaderCell align={'center'} minWidth={100} title={'Avatar'} />
         <HeaderCell align={'center'} minWidth={100} title={'Nome'} />
-        <HeaderCell align={'center'} minWidth={100} title={'Total de uso'} />
         <HeaderCell align={'center'} minWidth={100} title={'Ações'} />
       </TableRow>
     </TableHead>

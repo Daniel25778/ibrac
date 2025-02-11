@@ -7,7 +7,7 @@ export enum Role {
 
 export interface UserProps {
   id: number;
-  username: string;
+  email: string;
   role: Role;
   avatar: string | null;
   userSeeFunctionality: { functionalityId: number }[];

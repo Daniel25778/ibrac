@@ -85,7 +85,7 @@ export const Header: FC<HeaderProps> = ({ headerIsBig }) => {
                 'flex  text-white justify-between gap-2 items-center ml-auto h-[48px] rounded-3xl'
               }
             >
-              <ImageModal name={userQuery.data?.username} small url={userQuery.data?.avatar} />
+              <ImageModal name={userQuery.data?.email} small url={userQuery.data?.avatar} />
 
               <div
                 className={'flex flex-col gap-1'}
@@ -95,7 +95,7 @@ export const Header: FC<HeaderProps> = ({ headerIsBig }) => {
                   width: showUser ? '125px' : '0px'
                 }}
               >
-                <span className={'font-semibold  truncate'}>{userQuery.data?.username}</span>
+                <span className={'font-semibold  truncate'}>{userQuery.data?.email}</span>
               </div>
 
               <IconButton

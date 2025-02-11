@@ -10,10 +10,10 @@ export const getUser = (): UserProps => {
   return {
     _count: { actions: 0 },
     avatar: null,
+    email: '',
     id: 0,
     role: Role.common,
-    userSeeFunctionality: [],
-    username: ''
+    userSeeFunctionality: []
   };
 };
 

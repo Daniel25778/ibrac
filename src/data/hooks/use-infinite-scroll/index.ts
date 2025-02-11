@@ -4,27 +4,33 @@ import { useInfiniteQuery } from 'react-query';
 import type { FetchNextPageOptions, InfiniteQueryObserverResult } from 'react-query';
 import type { QueryName } from 'main/config';
 
-interface useInfiniteScrollProps {
+export interface useInfiniteScrollProps {
   route: string;
   queryName: QueryName;
   limit: number;
+  retry?: number;
+  refetchInterval?: number;
   filters?: object;
 }
 
-export const useInfiniteScroll = <T>({
-  route,
-  queryName,
-  limit,
-  filters
-}: useInfiniteScrollProps): {
-  data: T[] | undefined;
+export interface useInfiniteScrollReturnProps {
   fetchNextPage: (
     options?: FetchNextPageOptions | undefined
   ) => Promise<InfiniteQueryObserverResult<unknown>>;
   hasNextPage: boolean | undefined;
   isFetchingNextPage: boolean;
   isFetching: boolean;
-} => {
+  error: unknown;
+}
+
+export const useInfiniteScroll = <T>({
+  route,
+  queryName,
+  limit,
+  retry,
+  refetchInterval,
+  filters
+}: useInfiniteScrollProps): useInfiniteScrollReturnProps & { data: T[] | undefined } => {
   const [newData, setNewData] = useState<T[]>([]);
   const filter = filters ?? {};
 
@@ -34,19 +40,18 @@ export const useInfiniteScroll = <T>({
       route
     });
 
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isFetching } = useInfiniteQuery(
-    [queryName, ...Object.values(filter)],
-    fetchItems,
-    {
+  const { data, fetchNextPage, hasNextPage, error, isFetchingNextPage, isFetching } =
+    useInfiniteQuery([queryName, ...Object.values(filter)], fetchItems, {
       getNextPageParam(response, pages) {
         const { totalPages } = response as unknown as { totalPages: number };
 
         if (pages.length < totalPages) return pages.length + 1;
 
         return undefined;
-      }
-    }
-  );
+      },
+      refetchInterval,
+      retry
+    });
 
   useEffect(() => {
     const items: T[] = [];
@@ -66,6 +71,7 @@ export const useInfiniteScroll = <T>({
 
   return {
     data: newData,
+    error,
     fetchNextPage,
     hasNextPage: hasNextPage === undefined ? true : hasNextPage,
     isFetching,

@@ -40,7 +40,7 @@ export const UserFrom: FC<UserFromProps> = ({ closeModal, user, functionality })
   useEffect(() => {
     if (user) {
       setValue('avatar', user.avatar, validate);
-      setValue('username', user.username, validate);
+      setValue('email', user.email, validate);
       setValue('isNew', false, validate);
     } else setValue('isNew', true, validate);
   }, [user]);
@@ -49,10 +49,10 @@ export const UserFrom: FC<UserFromProps> = ({ closeModal, user, functionality })
     <div className={'flex gap-12 w-full'}>
       <form className={'flex flex-col gap-4 w-full'} onSubmit={handleSubmit(onSubmit)}>
         <LabelInput
-          error={!!errors.username}
+          error={!!errors.email}
           label={'Nome do usuário'}
           placeholder={'Digite o nome do usuário'}
-          register={register('username')}
+          register={register('email')}
           required
         />
 

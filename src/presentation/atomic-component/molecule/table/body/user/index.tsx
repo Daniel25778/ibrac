@@ -29,13 +29,12 @@ export const UserTableBody: FC<UserTableBodyProps> = ({ items }) => {
             align={'center'}
             title={
               <div className={'flex justify-center'}>
-                <ImageModal name={item.username} url={item?.avatar} />
+                <ImageModal name={item.email} url={item?.avatar} />
               </div>
             }
           />
 
-          <BodyCell align={'center'} title={item.username} />
-          <BodyCell align={'center'} title={item._count.actions} />
+          <BodyCell align={'center'} title={item.email} />
 
           <BodyCell
             align={'center'}
